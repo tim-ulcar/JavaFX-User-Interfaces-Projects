@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+    <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu text="_Datoteka">
+            <items>
+              <MenuItem onAction="#naloziCB" text="_Naloži">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem onAction="#shraniCB" text="_Shrani">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem onAction="#izhodCB" text="_Izhod">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu text="_Uredi">
+            <items>
+              <MenuItem onAction="#pobrisiVseCB" text="_Pobriši vse">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem onAction="#povzetekIzposojeCB" text="Povzetek _izposoje">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="I" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu text="_Pomoč">
+            <items>
+              <MenuItem onAction="#avtorCB" text="_Avtor" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <VBox GridPane.rowIndex="1">
+         <children>
+            <Label fx:id="stranka" text="Stranka">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="6.0" />
+               </VBox.margin></Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="imeLabel" text="Ime:      " />
+                  <TextField fx:id="ime" prefWidth="130.0" promptText="Vpiši ime">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></TextField>
+                  <Region prefHeight="200.0" prefWidth="35.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="telefonLabel" text="Telefon:" />
+                  <TextField fx:id="telefon" prefWidth="130.0" promptText="Format: 051123456">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></TextField>
+                  <Region prefHeight="200.0" prefWidth="35.0" HBox.hgrow="ALWAYS" />
+                  <Label text="Starost (let):                           " />
+                  <Spinner fx:id="starost" editable="true" prefWidth="65.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></Spinner>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="priimekLabel" text="Priimek:" />
+                  <TextField fx:id="priimek" prefWidth="130.0" promptText="Vpiši priimek">
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin></TextField>
+                  <Region prefHeight="200.0" prefWidth="35.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="emailLabel" text="Email:   " />
+                  <TextField fx:id="email" prefWidth="130.0" promptText="Format: a@b.c">
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin></TextField>
+                  <Region prefHeight="200.0" prefWidth="35.0" HBox.hgrow="ALWAYS" />
+                  <Label text="Čas od pridobitve izpita (let):">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Label>
+                  <Spinner fx:id="casOdPridobitveIzpita" editable="true" prefWidth="65.0">
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin></Spinner>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="naslovLabel" text="Naslov: " />
+                  <TextField fx:id="naslov" prefWidth="130.0" promptText="Ulica in hišna številka">
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin></TextField>
+               </children>
+            </HBox>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="50.0" left="20.0" right="20.0" top="20.0" />
+         </GridPane.margin>
+      </VBox>
+      <VBox GridPane.rowIndex="2">
+         <children>
+            <Label fx:id="casInKrajPrevzetjaTerVrnitve" text="Čas in kraj prevzetja ter vrnitve">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin></Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Prevzetje">
+                     <padding>
+                        <Insets bottom="3.0" />
+                     </padding></Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Datum: " />
+                  <DatePicker fx:id="datumPrevzetja">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></DatePicker>
+                  <Label text="Ura:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Label>
+                  <ChoiceBox fx:id="uraPrevzetja" prefWidth="50.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></ChoiceBox>
+                  <Label text="Minuta:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Label>
+                  <ChoiceBox fx:id="minutaPrevzetja" prefWidth="50.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></ChoiceBox>
+                  <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                  <Label text="Kraj:" />
+                  <ChoiceBox fx:id="krajPrevzetja" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Vrnitev">
+                     <padding>
+                        <Insets bottom="3.0" />
+                     </padding></Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Datum: " />
+                  <DatePicker fx:id="datumVrnitve">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></DatePicker>
+                  <Label text="Ura:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Label>
+                  <ChoiceBox fx:id="uraVrnitve" prefWidth="50.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></ChoiceBox>
+                  <Label text="Minuta:">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Label>
+                  <ChoiceBox fx:id="minutaVrnitve" prefWidth="50.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></ChoiceBox>
+                  <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                  <Label text="Kraj:" />
+                  <ChoiceBox fx:id="krajVrnitve" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+         </children>
+         <GridPane.margin>
+            <Insets bottom="60.0" left="20.0" right="20.0" />
+         </GridPane.margin>
+      </VBox>
+      <VBox GridPane.rowIndex="3">
+         <children>
+            <Label fx:id="avtomobil" text="Avtomobil">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="12.0" />
+               </VBox.margin></Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Velikost: " />
+                  <ChoiceBox fx:id="velikost" prefWidth="150.0">
+                     <opaqueInsets>
+                        <Insets left="5.0" />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></ChoiceBox>
+                  <Label text="Model: ">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin></Label>
+                  <ChoiceBox fx:id="model" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></ChoiceBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="8.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Menjalnik: " />
+                  <RadioButton fx:id="samodejni" mnemonicParsing="false" selected="true" text="Samodejni">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="menjalnik" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="rocni" mnemonicParsing="false" text="Ročni" toggleGroup="$menjalnik">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></RadioButton>
+                  <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                  <Label text="Gorivo: " />
+                  <RadioButton fx:id="bencin" mnemonicParsing="false" selected="true" text="Bencin">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gorivo" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="dizel" mnemonicParsing="false" text="Dizel" toggleGroup="$gorivo">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></RadioButton>
+                  <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                  <Label text="Dodatno zavarovanje:" />
+                  <RadioButton fx:id="da" mnemonicParsing="false" selected="true" text="Da ">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="dodatnoZavarovanje" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="ne" mnemonicParsing="false" text="Ne" toggleGroup="$dodatnoZavarovanje">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></RadioButton>
+               </children>
+            </HBox>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="60.0" left="20.0" right="20.0" />
+         </GridPane.margin></VBox>
+      <VBox GridPane.rowIndex="4">
+         <children>
+            <Label fx:id="nacinPlacilaNaslov" text="Način plačila">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
+            <Label fx:id="cena" text="Cena: 1100 evrov">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="gotovinaObPrevzetju" mnemonicParsing="false" selected="true" text="Gotovina ob prevzetju">
+                     <HBox.margin>
+                        <Insets bottom="3.0" />
+                     </HBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="nacinPlacila" />
+                     </toggleGroup></RadioButton>
+                  <Region prefHeight="200.0" prefWidth="50.0" />
+                  <RadioButton fx:id="kreditnaKartica" mnemonicParsing="false" text="Kreditna kartica" toggleGroup="$nacinPlacila" />
+                  <Label fx:id="stevilkaKarticeLabel" text="Številka kartice: ">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin></Label>
+                  <TextField fx:id="stevilkaKartice" promptText="1234-5678-1234-5678" />
+                  <Label fx:id="ccvLabel" text="CCV: ">
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding></Label>
+                  <TextField fx:id="ccv" prefWidth="50.0" promptText="123" />
+               </children>
+            </HBox>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </GridPane.margin></VBox>
+      <VBox GridPane.rowIndex="5">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="naloziStrankoButton" mnemonicParsing="false" onAction="#naloziCB" text="Naloži stranko">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="shraniButton" mnemonicParsing="false" onAction="#shraniCB" text="Shrani">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="pobrisiVseButton" mnemonicParsing="false" onAction="#pobrisiVseCB" text="Pobriši vse">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="podatkovnaBazaButton" mnemonicParsing="false" onAction="#izberiPodatkovnoBazoCB" text="Podatkovna baza">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="10.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="napakaNaslov" alignment="BOTTOM_LEFT" style="-fx-text-fill: #de1d1d;" text="Naslov - vsebovati mora ime ulice, presledek in hišno številko." />
+                        <Region prefHeight="200.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="napakaEmail" style="-fx-text-fill: #de1d1d;" text="Email - Zahtevana oblika je a@b.c" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="napakaTelefon" style="-fx-text-fill: #de1d1d;" text="Telefon - Dovoljena so le števila in morebiten + na začetku." />
+                        <Region prefHeight="200.0" prefWidth="50.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="napakaStevilkaKartice" style="-fx-text-fill: #de1d1d;" text="Številka kartice - Zahtevana oblika je 1234-5678-1234-5678">
+                           <HBox.margin>
+                              <Insets right="13.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Region prefHeight="200.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="napakaCCV" style="-fx-text-fill: #de1d1d;" text="CCV - Zahtevana oblika je 123">
+                           <HBox.margin>
+                              <Insets right="19.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="stanje" text="Stanje: Vpisovanje podatkov stranke" />
+                  <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="podatkovnaBaza" text="Podatkovna baza: najemi2021.txt" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <GridPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </GridPane.margin></VBox>
+   </children>
+</GridPane>

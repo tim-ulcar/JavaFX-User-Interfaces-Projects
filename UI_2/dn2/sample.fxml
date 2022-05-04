@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dn2.Controller">
+   <top>
+      <MenuBar>
+        <menus>
+          <Menu text="_Datoteka">
+            <items>
+              <MenuItem onAction="#odpriCB" text="_Odpri">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem onAction="#shraniCB" text="_Shrani">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem onAction="#izhodCB" text="_Izhod">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu text="_Iskanje">
+            <items>
+              <MenuItem onAction="#najdiCB" text="_Najdi" />
+                  <MenuItem onAction="#najdiVseInZamenjajCB" text="Najdi vse in _Zamenjaj" />
+            </items>
+          </Menu>
+          <Menu text="_Pomoč">
+            <items>
+              <MenuItem onAction="#avtorCB" text="_Avtor" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Accordion fx:id="accordion" BorderPane.alignment="CENTER">
+        <panes>
+          <TitledPane fx:id="titledPaneHTML" animated="false" onMouseClicked="#updateHTMLEditor" text="HTML Urejevalnik">
+               <content>
+                  <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="200.0" prefWidth="506.0" />
+               </content>
+            </TitledPane>
+          <TitledPane fx:id="titledPaneBesedilo" animated="false" onMouseClicked="#updateTextEditor" text="Besedilo">
+               <content>
+                  <TextArea fx:id="textEditor" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="Dnevnik">
+               <content>
+                  <TextArea fx:id="log" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+   </center>
+   <bottom>
+      <VBox>
+         <children>
+            <HBox alignment="BOTTOM_RIGHT">
+               <children>
+                  <Label text="Iskalni niz: ">
+                     <padding>
+                        <Insets bottom="6.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="najdiTF">
+                     <HBox.margin>
+                        <Insets bottom="3.0" top="3.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Separator prefHeight="27.0" prefWidth="40.0" visible="false" />
+                  <Label text="Zamenjalni niz: ">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="6.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="zamenjajTF">
+                     <HBox.margin>
+                        <Insets bottom="3.0" right="30.0" top="3.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button mnemonicParsing="false" onAction="#odpriCB" text="Odpri" />
+                  <Separator prefWidth="115.0" visible="false" />
+                  <Button mnemonicParsing="false" onAction="#shraniCB" text="Shrani" />
+                  <Separator prefWidth="115.0" visible="false" />
+                  <Button mnemonicParsing="false" onAction="#izhodCB" text="Zapri" />
+                  <Separator prefWidth="115.0" visible="false" />
+                  <Button mnemonicParsing="false" onAction="#prejsnjiCB" text="Prejšnji" />
+                  <Button mnemonicParsing="false" onAction="#najdiCB" text="Najdi" />
+                  <Button mnemonicParsing="false" onAction="#naslednjiCB" text="Naslednji" />
+                  <Separator prefWidth="130.0" visible="false" />
+                  <Button mnemonicParsing="false" onAction="#najdiVseInZamenjajCB" text="Najdi vse in Zamenjaj" />
+              </items>
+            </ToolBar>
+            <Label fx:id="obvestila" text="Obvestila: ">
+               <VBox.margin>
+                  <Insets left="3.0" />
+               </VBox.margin></Label>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
