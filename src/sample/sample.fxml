@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu text="_Datoteka">
+                  <items>
+                    <MenuItem onAction="#odpriCB" text="_Odpri">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem onAction="#pobrisiCB" text="_Pobriši">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#izhodCB" text="_Izhod">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                  </items>
+                </Menu>
+                <Menu text="Izbire_1">
+                  <items>
+                    <MenuItem onAction="#addT" text="Izibre 1 _T" />
+                        <MenuItem onAction="#addI" text="Izbire 1 _I" />
+                        <MenuItem onAction="#addM" text="Izbire 1 _M" />
+                  </items>
+                </Menu>
+                <Menu text="Izbire_2">
+                  <items>
+                    <MenuItem onAction="#addU" text="Izbire 2 _U" />
+                        <MenuItem onAction="#addL" text="Izbire 2 _L" />
+                        <MenuItem onAction="#addČ" text="Izbire 2 _Č" />
+                        <MenuItem onAction="#addA" text="Izbire 2 _A" />
+                        <MenuItem onAction="#addR" text="Izbire 2 _R" />
+                  </items>
+                </Menu>
+                  <Menu text="_Pomoč">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#pomagajMi" text="Pomagaj mi" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button mnemonicParsing="false" onAction="#addT" text="I1 T" />
+                  <Button mnemonicParsing="false" onAction="#addI" text="I1 I" />
+                  <Button mnemonicParsing="false" onAction="#addM" text="I1 M" />
+                  <Button mnemonicParsing="false" onAction="#addU" text="I2 U" />
+                  <Button mnemonicParsing="false" onAction="#addL" text="I2 L" />
+                  <Button mnemonicParsing="false" onAction="#addČ" text="I2 Č" />
+                  <Button mnemonicParsing="false" onAction="#addA" text="I2 A" />
+                  <Button mnemonicParsing="false" onAction="#addR" text="I2 R" />
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+   <right>
+      <AnchorPane maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="textfield" layoutX="41.0" layoutY="29.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="309.0" />
+            <RadioButton fx:id="dodajRB" layoutX="41.0" layoutY="80.0" mnemonicParsing="false" onAction="#sporociloDodaj" selected="true" text="Dodaj">
+               <toggleGroup>
+                  <ToggleGroup fx:id="radiobuttons" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="odstraniPrvegaRB" layoutX="288.0" layoutY="80.0" mnemonicParsing="false" onAction="#sporociloOdstraniPrvega" prefHeight="17.0" prefWidth="114.0" text="Odstrani prvega" toggleGroup="$radiobuttons" AnchorPane.leftAnchor="288.0" AnchorPane.rightAnchor="298.0" />
+            <RadioButton fx:id="odstraniIzbranegaRB" layoutX="130.0" layoutY="80.0" mnemonicParsing="false" onAction="#sporociloOdstraniIzbranega" text="Odstrani izbranega" toggleGroup="$radiobuttons" />
+            <Button fx:id="button" layoutX="41.0" layoutY="126.0" mnemonicParsing="false" onAction="#izvediAkcijo" text="Izvedi izbrano akcijo" />
+            <ComboBox fx:id="combobox" layoutX="41.0" layoutY="184.0" prefWidth="150.0" promptText="Izberi kraj" />
+            <Spinner fx:id="spinner" layoutX="398.0" layoutY="184.0" />
+            <CheckBox fx:id="checkbox" layoutX="212.0" layoutY="130.0" mnemonicParsing="false" selected="true" text="Prepovej dvojnike" />
+            <Label fx:id="sporocila" layoutX="41.0" layoutY="255.0" text="Dodajam" />
+            <Label fx:id="status" layoutX="41.0" layoutY="311.0" text="Status: " />
+            <Label layoutX="363.0" layoutY="130.0" text="Izberi indeks dodajanja" />
+            <Spinner fx:id="spinnerAdding" layoutX="491.0" layoutY="126.0" />
+            <Label layoutX="254.0" layoutY="188.0" text="Izpiši kraj na tem indeksu" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
