@@ -1,1 +1,1 @@
-# JavaFX-User-Interfaces-Projects
+User interfaces projects made with JavaFX.
